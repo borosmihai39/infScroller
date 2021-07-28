@@ -46,9 +46,14 @@ h1 {
 
 .image-container img{
     width: 100%;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
+#imgTitle{
+    display: flex;
+    justify-content: center;
+    font-weight: 800;
+}
 /* media query for mobile devices */
 /* anything less than 600px will apply this styiling */
 @media screen and (max-width: 600px) {

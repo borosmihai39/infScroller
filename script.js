@@ -2,6 +2,7 @@
 // `` is a template string
 const imageContainer = document.getElementById('image-container');
 const loader = document.getElementById('loader');
+// const divTitle = document.getElementById('image-description');
 // array
 let ready = false;
 let imagesLoaded = 0;
@@ -22,12 +23,12 @@ function setAttributes(element, attributes) {
 
 function imageLoaded() {
     imagesLoaded++;
-    console.log(imagesLoaded);
-    console.log('image loaded');
+    // console.log(imagesLoaded);
+    // console.log('image loaded');
     if (imagesLoaded === totalImages) {
         ready = true;
         loader.hidden = true;
-        console.log('ready =', ready);
+        // console.log('ready =', ready);
     }
 }
 
@@ -56,6 +57,10 @@ function displayPhotos() {
             title: photo.alt_description,
 
         });
+
+        const imgTitle = document.createElement('div');
+        imgTitle.setAttribute("id", "imgTitle");
+        imgTitle.innerHTML = photo.alt_description;
         // img.setAttribute('src', photo.urls.regular);
         // img.setAttribute('alt', photo.alt_description);
         // img.setAttribute('title', photo.alt_description);
@@ -64,6 +69,7 @@ function displayPhotos() {
         img.addEventListener('load', imageLoaded())
         item.appendChild(img);
         imageContainer.appendChild(item);
+        imageContainer.appendChild(imgTitle);
     });
 }
 
